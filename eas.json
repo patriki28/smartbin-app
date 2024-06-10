@@ -1,21 +1,35 @@
 {
-  "build": {
-    "preview": {
-      "android": {
-        "buildType": "apk"
-      }
-    },
-    "preview2": {
-      "android": {
-        "gradleCommand": ":app:assembleRelease"
-      }
-    },
-    "preview3": {
-      "developmentClient": true
-    },
-    "preview4": {
-      "distribution": "internal"
-    },
-    "production": {}
-  }
+    "build": {
+        "development": {
+            "developmentClient": true,
+            "distribution": "internal"
+        },
+        "preview": {
+            "distribution": "internal",
+            "android": {
+                "buildType": "apk"
+            },
+            "env": {
+                "EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyAOMYONHuV6hMmfVUnoEadnALvnx6Qo2nU",
+                "EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "test-2ac5c.firebaseapp.com",
+                "EXPO_PUBLIC_FIREBASE_PROJECT_ID": "test-2ac5c",
+                "EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "test-2ac5c.appspot.com",
+                "EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "778611722689",
+                "EXPO_PUBLIC_FIREBASE_APP_ID": "1:778611722689:web:bc9f17677f476aa27d4740",
+                "EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID": "G-CS0VJQ19NY"
+            }
+        },
+        "preview2": {
+            "android": {
+                "gradleCommand": ":app:assembleRelease"
+            }
+        },
+        "preview3": {
+            "developmentClient": true
+        },
+        "preview4": {
+            "distribution": "internal"
+        },
+        "production": {}
+    }
 }

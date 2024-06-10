@@ -1,6 +1,6 @@
-import { sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth';
+import { sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { useState } from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Toast } from 'toastify-react-native';
 import Logo from '../../assets/logo.png';
@@ -34,6 +34,7 @@ export default function LoginScreen({ navigation }) {
             } else {
                 Toast.error('Please verify your email.');
                 await sendEmailVerification(user);
+                signOut(auth);
             }
         } catch (error) {
             let errorMessage = 'An unexpected error occurred. Please try again.';
@@ -86,12 +87,6 @@ export default function LoginScreen({ navigation }) {
                 <Text style={styles.link}>Forgot Password?</Text>
             </TouchableOpacity>
             <Button onPress={handleLogin} text="Login" loading={loading} />
-            <View style={styles.registerContainer}>
-                <Text style={{ color: 'gray' }}>Don&apos;t have an account?</Text>
-                <TouchableOpacity onPress={() => navigation.push('Register')}>
-                    <Text style={styles.link}>Register</Text>
-                </TouchableOpacity>
-            </View>
         </SafeAreaView>
     );
 }

@@ -1,1 +1,1 @@
-export const wasteTypeData = ['All', 'metal', 'wet', 'non-organic'];
+export const wasteTypeData = ['Metal', 'Wet', 'Dry'];
