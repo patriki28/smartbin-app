@@ -11,7 +11,7 @@ import ChangeEmailScreen from './src/screens/ChangeEmailScreen';
 import ChangePasswordScreen from './src/screens/ChangePasswordScreen';
 import ChangePersonalInfoScreen from './src/screens/ChangePersonalInfoScreen';
 import LoginScreen from './src/screens/LoginScreen';
-import RegisterScreen from './src/screens/RegisterScreen';
+import SelectMonitorBinsScreen from './src/screens/SelectMonitorBinsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +37,11 @@ export default function App() {
                         <>
                             <Stack.Screen options={{ headerShown: false }} name="Home" component={HomeLayout} />
                             <Stack.Screen
+                                options={{ title: 'Select bins to monitor' }}
+                                name="SelectMonitorBins"
+                                component={SelectMonitorBinsScreen}
+                            />
+                            <Stack.Screen
                                 options={{ title: 'Change Personal Info' }}
                                 name="ChangePersonalInfo"
                                 component={ChangePersonalInfoScreen}
@@ -45,10 +50,7 @@ export default function App() {
                             <Stack.Screen options={{ title: 'Change Password' }} name="ChangePassword" component={ChangePasswordScreen} />
                         </>
                     ) : (
-                        <>
-                            <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
-                            <Stack.Screen options={{ title: 'Create your account' }} name="Register" component={RegisterScreen} />
-                        </>
+                        <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
                     )}
                 </Stack.Navigator>
             </NavigationContainer>

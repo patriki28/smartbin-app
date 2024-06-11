@@ -17,7 +17,7 @@
         },
         "android": {
             "adaptiveIcon": {
-                "foregroundImage": "./assets/adaptive-icon.png",
+                "foregroundImage": "./assets/icon.png",
                 "backgroundColor": "#ffffff"
             },
             "package": "com.patriki.smartbin"
@@ -25,11 +25,11 @@
         "web": {
             "favicon": "./assets/favicon.png"
         },
+        "plugins": ["expo-font"],
         "extra": {
             "eas": {
-                "projectId": "2bc95306-22ef-43b9-939f-7a5031892ab6"
+                "projectId": "7ff1ac6f-fdcf-4f4c-94ea-69554bc5f73b"
             }
-        },
-        "plugins": ["expo-font"]
+        }
     }
 }

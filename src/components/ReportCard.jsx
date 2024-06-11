@@ -6,6 +6,7 @@ export default function ReportCard({ item }) {
     return (
         <View style={styles.reportItem}>
             <View style={styles.content}>
+                <Text style={styles.bin}>{item.bin}</Text>
                 <Text style={styles.binType}>{item.bin_type}</Text>
                 <Text style={styles.date}>{formatDate(item.time_stamp)}</Text>
             </View>
@@ -28,6 +29,11 @@ const styles = StyleSheet.create({
     },
     content: {
         gap: 6,
+    },
+    bin: {
+        fontSize: 25,
+        fontWeight: 'bold',
+        color: Colors.primaryColor,
     },
     binType: {
         textAlign: 'center',

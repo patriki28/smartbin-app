@@ -1,3 +1,10 @@
 {
-  "urlRandomness": "EUM1Fl4"
+  "urlRandomness": "EUM1Fl4",
+  "dev": true,
+  "minify": false,
+  "https": false,
+  "scheme": "exp+smartbin",
+  "hostType": "lan",
+  "lanType": "ip",
+  "devClient": false
 }

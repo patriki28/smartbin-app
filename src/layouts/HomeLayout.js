@@ -1,8 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Animated, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import { Colors } from '../constants/Color';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Colors } from '../constants/Color';
 import HomeScreen from '../screens/HomeScreen';
+import NotificationScreen from '../screens/NotificationScreen';
 import ReportScreen from '../screens/ReportScreen';
 import SettingScreen from '../screens/SettingScreen';
 
@@ -34,6 +35,8 @@ export default function HomeLayout() {
 
                     if (route.name === 'HomeTab') {
                         iconName = focused ? 'home' : 'home-outline';
+                    } else if (route.name === 'NotificationsTab') {
+                        iconName = focused ? 'notifications' : 'notifications-outline';
                     } else if (route.name === 'ReportsTab') {
                         iconName = focused ? 'folder' : 'folder-outline';
                     } else if (route.name === 'SettingsTab') {
@@ -55,6 +58,7 @@ export default function HomeLayout() {
             })}
         >
             <Tab.Screen options={{ headerShown: false, tabBarLabel: 'Home' }} name="HomeTab" component={HomeScreen} />
+            <Tab.Screen options={{ headerShown: false, tabBarLabel: 'Notifications' }} name="NotificationsTab" component={NotificationScreen} />
             <Tab.Screen options={{ headerShown: false, tabBarLabel: 'Reports' }} name="ReportsTab" component={ReportScreen} />
             <Tab.Screen options={{ headerShown: false, tabBarLabel: 'Settings' }} name="SettingsTab" component={SettingScreen} />
         </Tab.Navigator>

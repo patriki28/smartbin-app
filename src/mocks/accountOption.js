@@ -1,5 +1,10 @@
 export const accountOptions = [
     {
+        title: 'Select Monitor Bins',
+        icon: 'trash-outline',
+        path: 'SelectMonitorBins',
+    },
+    {
         title: 'Change Personal Info',
         icon: 'person-outline',
         path: 'ChangePersonalInfo',
