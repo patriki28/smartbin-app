@@ -8,7 +8,7 @@ export default function ReportCard({ item }) {
             <View style={styles.content}>
                 <Text style={styles.bin}>{item.bin}</Text>
                 <Text style={styles.binType}>{item.bin_type}</Text>
-                <Text style={styles.date}>{formatDate(item.time_stamp)}</Text>
+                <Text style={styles.date}>{formatDate(item.timestamp)}</Text>
             </View>
             <View style={styles.percentage}>
                 <Text>{item.percentage}%</Text>

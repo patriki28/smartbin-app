@@ -1,36 +1,36 @@
-import { TouchableOpacity, ActivityIndicator, Text, StyleSheet } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Colors } from '../constants/Color';
 
-export default function Button({ onPress, loading, text, variant }) {
-    const buttonStyles = getButtonStyles(variant);
-    const buttonTextStyles = getButtonTextStyles(variant);
+export default function Button({ onPress, loading, text, variant, disabled }) {
+    const buttonStyles = getButtonStyles(variant, disabled);
+    const buttonTextStyles = getButtonTextStyles(variant, disabled);
 
     return (
-        <TouchableOpacity style={buttonStyles} onPress={onPress} disabled={loading}>
+        <TouchableOpacity style={buttonStyles} onPress={onPress} disabled={loading || disabled}>
             {loading ? <ActivityIndicator size={25} color="white" /> : <Text style={buttonTextStyles}>{text}</Text>}
         </TouchableOpacity>
     );
 }
 
-const getButtonStyles = (variant) => {
+const getButtonStyles = (variant, disabled) => {
     switch (variant) {
         case 'secondary':
-            return styles.secondaryButton;
+            return [styles.secondaryButton, disabled && styles.disabledButton];
         case 'danger':
-            return styles.dangerButton;
+            return [styles.dangerButton, disabled && styles.disabledButton];
         default:
-            return styles.primaryButton;
+            return [styles.primaryButton, disabled && styles.disabledButton];
     }
 };
 
-const getButtonTextStyles = (variant) => {
+const getButtonTextStyles = (variant, disabled) => {
     switch (variant) {
         case 'secondary':
-            return styles.secondaryButtonText;
+            return [styles.secondaryButtonText, disabled && styles.disabledButtonText];
         case 'danger':
-            return styles.dangerButtonText;
+            return [styles.dangerButtonText, disabled && styles.disabledButtonText];
         default:
-            return styles.primaryButtonText;
+            return [styles.primaryButtonText, disabled && styles.disabledButtonText];
     }
 };
 
@@ -76,5 +76,11 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18,
         fontWeight: 'bold',
+    },
+    disabledButton: {
+        backgroundColor: '#AAAAAA',
+    },
+    disabledButtonText: {
+        color: '#666666',
     },
 });

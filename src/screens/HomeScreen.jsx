@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Loader from '../components/Loader';
 import useCurrentUserData from '../hooks/useCurrentUserData';
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen() {
     const { data: userData, loading: userLoading } = useCurrentUserData();
 
     const [selectedValue, setSelectedValue] = useState('All');
@@ -27,9 +27,9 @@ export default function HomeScreen({ navigation }) {
             <View style={styles.pickerContainer}>
                 <Picker selectedValue={selectedValue} onValueChange={(itemValue) => setSelectedValue(itemValue)} style={styles.picker}>
                     <Picker.Item label="All Bin Types" value="All" />
-                    <Picker.Item label="Organic" value="Organic" />
-                    <Picker.Item label="Plastic" value="Plastic" />
-                    <Picker.Item label="Glass" value="Glass" />
+                    <Picker.Item label="Dry" value="Dry" />
+                    <Picker.Item label="Wet" value="Wet" />
+                    <Picker.Item label="Metal" value="Metal" />
                 </Picker>
                 <Picker selectedValue={timePeriod} onValueChange={(itemValue) => setTimePeriod(itemValue)} style={styles.picker}>
                     <Picker.Item label="Daily" value="daily" />
