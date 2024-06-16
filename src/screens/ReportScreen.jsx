@@ -16,6 +16,7 @@ import { wasteTypeData } from '../mocks/wasteTypeData';
 import filteredAnalyzeFillData from '../utils/filteredAnalyzeFillData';
 import filteredAnalyzeWasteData from '../utils/filteredAnalyzeWasteData';
 import { sortDate } from '../utils/sortDate';
+import { filterBinLevel } from '../utils/filterBinFillLevel';
 
 export default function ReportScreen({ navigation }) {
     const userId = auth.currentUser.uid;
@@ -39,7 +40,8 @@ export default function ReportScreen({ navigation }) {
 
     const filteredBins = binsData.filter((bin) => userSelectedBins.includes(bin.id));
 
-    const sortedFillData = sortDate(fillLevelsData);
+    // const sortedFillData = sortDate(fillLevelsData);
+    const sortedFillData = filterBinLevel(fillLevelsData);
     const sortedWasteData = sortDate(wasteData);
 
     const filteredFillData = sortedFillData
