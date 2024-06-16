@@ -1,3 +1,4 @@
+import { signOut } from 'firebase/auth';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { auth, db } from '../config/firebase';
@@ -20,7 +21,13 @@ export default function useCurrentUserData() {
             userDocRef,
             (docSnapshot) => {
                 if (docSnapshot.exists()) {
-                    setData({ id: docSnapshot.id, ...docSnapshot.data() });
+                    const userData = docSnapshot.data();
+                    if (userData.isDisabled === true) {
+                        alert('Your account has been disabled.');
+                        signOut(auth);
+                    } else {
+                        setData({ id: docSnapshot.id, ...userData });
+                    }
                 } else {
                     setData(null);
                 }

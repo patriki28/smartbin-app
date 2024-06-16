@@ -116,7 +116,7 @@ export default function SettingScreen({ navigation }) {
                 />
             </TouchableOpacity>
             <Text style={styles.username}>{`${data?.firstName} ${data?.lastName}` || 'Username'}</Text>
-            <Text style={styles.email}>{data.email || 'Username'}</Text>
+            <Text style={styles.email}>{auth.currentUser.email || 'Username'}</Text>
             <AccountSettings options={accountOptions} navigation={navigation} />
             <Button variant="danger" text="Logout" onPress={handleLogout} />
         </SafeAreaView>

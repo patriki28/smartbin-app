@@ -6,16 +6,19 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ToastManager from 'toastify-react-native';
 import Loader from './src/components/Loader';
 import { auth } from './src/config/firebase';
+import useNotifications from './src/hooks/useNotifications';
 import HomeLayout from './src/layouts/HomeLayout';
 import ChangeEmailScreen from './src/screens/ChangeEmailScreen';
 import ChangePasswordScreen from './src/screens/ChangePasswordScreen';
 import ChangePersonalInfoScreen from './src/screens/ChangePersonalInfoScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import SelectMonitorBinsScreen from './src/screens/SelectMonitorBinsScreen';
+import ViewReportScreen from './src/screens/ViewReportScreen';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+    const { loading } = useNotifications();
     const [isAuthenticated, setIsAuthenticated] = useState(null);
 
     useEffect(() => {
@@ -26,7 +29,7 @@ export default function App() {
         return () => unsubscribe();
     }, []);
 
-    if (isAuthenticated === null) return <Loader />;
+    if (loading || isAuthenticated === null) return <Loader />;
 
     return (
         <SafeAreaProvider>
@@ -36,6 +39,7 @@ export default function App() {
                     {isAuthenticated ? (
                         <>
                             <Stack.Screen options={{ headerShown: false }} name="Home" component={HomeLayout} />
+                            <Stack.Screen options={{ title: 'View Reports' }} name="ViewReport" component={ViewReportScreen} />
                             <Stack.Screen
                                 options={{ title: 'Select bins to monitor' }}
                                 name="SelectMonitorBins"

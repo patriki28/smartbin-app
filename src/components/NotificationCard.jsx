@@ -6,7 +6,7 @@ export default function NotificationCard({ item }) {
     return (
         <View style={styles.notificationItem}>
             <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.date}>{formatDate(item.time_stamp)}</Text>
+            <Text style={styles.date}>{formatDate(item.timestamp)}</Text>
         </View>
     );
 }
